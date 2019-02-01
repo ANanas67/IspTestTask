@@ -1,0 +1,83 @@
+<section class="section">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header bordered">
+                    <div class="header-block">
+                        <h3 class="title">{{title}}</h3>
+                    </div>
+                    <div class="form-inline pull-right m-r-2">
+                        <div class="form-group">
+                            <input type="text"
+                                   class="form-control"
+                                   placeholder="Искать..."
+                                   name="searchValue"
+                                   [(ngModel)]="searchValue"
+                            >
+                        </div>
+                    </div>
+                </div>
+                <div class="card-block">
+                    <div class="row">
+                        <div class="col-md-2 card-block-header-name">Имя</div>
+                        <div class="col-md-6 card-block-header-ref">Ссылка</div>
+                        <div class="col-xs-2 card-block-header-preview">Превью</div>
+                        <div class="col-xs-2 card-block-header-action">Действия</div>
+                    </div>
+                    <ul class="list-group">
+                        <cdk-virtual-scroll-viewport style="height: 507px" itemSize="30">
+                            <div *ngIf="fetching" class="text-center m-5">
+                                <div class="spinner-grow spinner-style" role="status">
+                                    <span class="sr-only">Please, wait...</span>
+                                </div>
+                            </div>
+                            <ng-container *cdkVirtualFor="let emoji of emojis | keyvalue | emojiFilter:searchValue">
+                                <li class="list-group-item">
+                                    <div class="row">
+                                        <div class="col-md-2 badge">{{emoji.key}}</div>
+                                        <div class="col-md-7 ref-style">{{emoji.value}}</div>
+                                        <div class="col-xs-1">
+                                            <img [ngClass]="getStyle(emoji.key)"
+                                                 src={{emoji.value}}
+                                                 (mouseover)="showBigPic(emoji.key, $event, true)"
+                                                 (mouseleave)="showBigPic(emoji.key, $event, false)"
+                                            >
+                                            <img *ngIf="showBigPicFlag && bigEmojiName === emoji.key"
+                                                 src={{emoji.value}}
+                                                 class="img-big-style"
+                                            >
+                                        </div>
+                                        <div class="col-xs-1">
+                                            <img *ngIf="routeValue === ''"
+                                                 class="img-style"
+                                                 title="Добавить в избранное"
+                                                 src="../../assets/images/favorite_border.png"
+                                                 (click)="handlerFavorite(emoji.key)"
+                                            >
+                                            <img *ngIf="routeValue === 'deleted'"
+                                                 class="img-style"
+                                                 style="margin-left: 70%"
+                                                 title="Восстановить"
+                                                 src="../../assets/images/reply.png"
+                                                 (click)="handlerDelete(emoji.key)"
+                                            >
+                                        </div>
+                                        <div class="col-xs-1">
+                                            <img *ngIf="routeValue === '' || routeValue === 'favorite'"
+                                                 class="img-style"
+                                                 [ngStyle]="{'margin-left': getMarginDelete()}"
+                                                 title="Удалить"
+                                                 src="../../assets/images/delete_border.png"
+                                                 (click)="handlerDelete(emoji.key)"
+                                            >
+                                        </div>
+                                    </div>
+                                </li>
+                            </ng-container>
+                        </cdk-virtual-scroll-viewport>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,29 @@
+<aside class="sidebar">
+    <div class="sidebar-container">
+        <div class="sidebar-header">
+            <div class="brand">
+                <div class="logo">
+                    <span class="l l1"></span>
+                    <span class="l l2"></span>
+                    <span class="l l3"></span>
+                    <span class="l l4"></span>
+                    <span class="l l5"></span>
+                </div>
+                Emojis
+            </div>
+        </div>
+        <nav class="menu">
+            <ul class="nav metismenu">
+                <li class="width-btn" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                    <a routerLink="/"> <i class="fa fa-list-ul"></i>Все</a>
+                </li>
+                <li class="width-btn" routerLinkActive="active">
+                    <a routerLink="/favorite"> <i class="fa fa-heart"></i>Любимые</a>
+                </li>
+                <li class="width-btn" routerLinkActive="active">
+                    <a routerLink="/deleted"> <i class="fa fa-remove"></i>Удаленные</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</aside>

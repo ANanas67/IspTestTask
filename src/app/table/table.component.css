@@ -1,0 +1,65 @@
+/*
+CARD-BLOCK
+*/
+.card-block-header-name {
+    text-align: center;
+    padding-left: 4%;
+    font-weight: bold;
+}
+
+.card-block-header-ref {
+    text-align: center;
+    font-weight: bold;
+}
+
+.card-block-header-preview {
+    text-align: center;
+    padding-left: 3%;
+    font-weight: bold;
+}
+
+.card-block-header-action {
+    text-align: center;
+    padding-right: 9%;
+    font-weight: bold;
+}
+
+/*
+CARD-BLOCK
+*/
+
+/*
+LIST-GROUP
+*/
+.spinner-style {
+    width: 5rem;
+    height: 5rem;
+    margin-top: 150px;
+}
+
+.ref-style {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.img-favorite-style {
+    width: 25px;
+    height: 25px;
+    opacity: 0.5
+}
+
+.img-style {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.img-big-style {
+    position: absolute;
+    left: -128px;
+}
+
+/*
+LIST-GROUP
+*/
